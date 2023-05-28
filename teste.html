@@ -33,11 +33,15 @@
         </div>
 
         <div>
-            <p class="red-categorie">produt02</p>
+            <p class="blue-categorie">produt02</p>
         </div>
 
         <div>
-            <p class="orange-categorie">produt03</p>
+            <p class="red-categorie">produt03</p>
+        </div>
+
+        <div>
+            <p class="orange-categorie">produt04</p>
         </div>
     </section>
 
@@ -97,29 +101,24 @@
     const redColorInput = document.querySelector('#red-color')
     const orangeColorInput = document.querySelector('#orange-color')
 
+    function colorFilter(colorInput, colorCategorie) {
+        if (colorInput.checked) {
+            colorCategorie.forEach(product => product.classList.add('color-active'))
+        } else {
+            colorCategorie.forEach(product => product.classList.remove('color-active'))
+        }
+    }
 
     blueColorInput.addEventListener('click', () => {
-        if (blueColorInput.checked) {
-            blueCategorieProducts.forEach(product => product.classList.add('color-active'))
-        } else {
-            blueCategorieProducts.forEach(product => product.classList.remove('color-active'))
-        }
+        colorFilter(blueColorInput, blueCategorieProducts)
     })
 
     redColorInput.addEventListener('click', () => {
-        if (redColorInput.checked) {
-            redCategorieProducts.forEach(product => product.classList.add('color-active'))
-        } else {
-            redCategorieProducts.forEach(product => product.classList.remove('color-active'))
-        }
+        colorFilter(redColorInput, redCategorieProducts)
     })
 
     orangeColorInput.addEventListener('click', () => {
-        if (orangeColorInput.checked) {
-            orangeCategorieProducts.forEach(product => product.classList.add('color-active'))
-        } else {
-            orangeCategorieProducts.forEach(product => product.classList.remove('color-active'))
-        }
+        colorFilter(orangeColorInput, orangeCategorieProducts)
     })
 
 </script>
